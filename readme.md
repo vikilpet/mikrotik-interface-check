@@ -1,6 +1,5 @@
 # The MikroTik script to detect whether the interface is really working
 ![mikrotik interface check](https://user-images.githubusercontent.com/43970835/92155775-f2f5dd80-ee38-11ea-9af6-bb4f114d0029.gif)
-*Open the image to see the animation*
 
 Advantages:
 - Can be used for one or more interfaces.
