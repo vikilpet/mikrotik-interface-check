@@ -45,13 +45,12 @@ local numSucPerc 67
 # - - - SETTINGS - - - 
 
 local funDebug do={
-    if ( true ) do={ log info ("    " . $1) }
+    if ( false ) do={ log info ("    " . $1) }
 }
 local arrInterfaces [toarray ""]
 local numHostCount 0
 local numPingSuccess 0
 if ([len [/system script job find script=$strScriptName] ] > 1) do={
-    $funDebug ("$strScriptName is already running")
     error ("$strScriptName duplicate")
 }
 local funReplace do={
@@ -74,7 +73,6 @@ local funReplace do={
 }
 foreach h in=$arrHostsToPing do={set numHostCount ($numHostCount + 1)}
 set numPingSuccess ($numHostCount * $numPingCount * $numSucPerc / 100)
-$funDebug ("Ping successfull if ping count is >= $numPingSuccess")
 
 if ([typeof $vInterface] = "str") do={
     set arrInterfaces ({$vInterface})
@@ -83,7 +81,6 @@ if ([typeof $vInterface] = "str") do={
 }
 foreach strInterface in=$arrInterfaces do={
     do {
-        $funDebug ("$strInterface check")
         local strPrevStatus "UP"
         local strGlobVarStatus ("strStatus" \
             . [$funReplace $strInterface "_" ""])
@@ -122,7 +119,6 @@ foreach strInterface in=$arrInterfaces do={
                 log info ("    $strInterface: $strHost is unreachable")
             }
             set numPingResult ($numPingResult + $pr)
-            $funDebug ("$strHost adds $numPingResult to ping result")
         }
         if ($numPingResult < $numPingSuccess) do={
             set numCurFailCount ($numCurFailCount + 1)
@@ -139,10 +135,7 @@ foreach strInterface in=$arrInterfaces do={
                 set numCurSucCount ($numCurSucCount + 1)
             }
         }
-        $funDebug ("current failure count: $numCurFailCount" \
-            . " (max: $numFailLimit)")
-        $funDebug ("current success count: $numCurSucCount" \
-            . " (max: $numSucLimit)")
+
         if ($numCurFailCount = $numFailLimit) do={
             set strCurStatus "DOWN"
             set numCurSucCount 0
@@ -163,8 +156,6 @@ foreach strInterface in=$arrInterfaces do={
             [find name=$strGlobVarFailCount]
         /system script environment set value=$numCurSucCount \
             [find name=$strGlobVarSucCount]
-        $funDebug ("current status: $strCurStatus" \
-            . " previous: $strPrevStatus")
         if ($strCurStatus != $strPrevStatus) do={
             if ($strCurStatus = "UP") do={
                 do {
@@ -188,4 +179,3 @@ foreach strInterface in=$arrInterfaces do={
         info warning "    script failed"
     }
 }
-$funDebug "EXIT"

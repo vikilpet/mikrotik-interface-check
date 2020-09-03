@@ -3,7 +3,7 @@
 
 Advantages:
 - Can be used for one or more interfaces.
-- Any type of interface
+- Any type of interface.
 - Ping several addresses (relying on one is too unreliable).
 - You can run it as often as you like - it can detect fail relatively fast.
 - Easy setup - you only need to set a couple of variables.
