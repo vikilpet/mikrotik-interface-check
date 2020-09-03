@@ -1,4 +1,4 @@
-# Скрипт проверки работоспособности интерфейса
+# Скрипт проверки работоспособности интерфейса для MikroTik
 ![mikrotik interface check](https://user-images.githubusercontent.com/43970835/92127780-b7481d00-ee12-11ea-81be-7e586c67ec8a.gif)
 
 Преимущества:
