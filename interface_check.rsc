@@ -17,7 +17,7 @@ local vInterface "ether1"
 #     "/ip fi co re [find connection-type=sip and connection-mark=%interface%]" \
 #     . "; /ip fi co re [find dst-address~\":1701\" and connection-mark=con_%interface%]" \
 # )
-local strActionOnDown ("ip ro dis [find gateway=%interface% and static=yes]")
+local strActionOnDown ("/ip ro dis [find gateway=%interface% and static=yes]")
 
 # The action to be taken when the interface is up.
 local strActionOnUp ("/ip ro en [find gateway=%interface% and static=yes]")
