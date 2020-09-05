@@ -13,7 +13,7 @@ Advantages:
 # Setup
 Just create script in `/system scripts` and set variables in `SETTINGS` to your liking. Variables are provided with comments and examples.
 
-Add a task to the scheduler with short interval. The script won't run twice anyway.
+Add a task to the scheduler with short interval (even a couple of seconds is OK).
 
     `/system script run Check_ISP1`
 
