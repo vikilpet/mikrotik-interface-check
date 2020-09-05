@@ -1,3 +1,4 @@
+# https://github.com/vikilpet/mikrotik-interface-check
 
 # + + + SETTINGS + + +
 # The name of this script in /system scripts
@@ -116,7 +117,9 @@ foreach strInterface in=$arrInterfaces do={
             local pr [ping address=$strHost count=$numPingCount \
                 interface=$strInterface]
             if ($pr = 0) do={
-                log info ("    $strInterface: $strHost is unreachable")
+                if ($strCurStatus = "UP") do={
+                    log info ("    $strInterface: $strHost is unreachable")
+                }
             }
             set numPingResult ($numPingResult + $pr)
         }
@@ -125,7 +128,7 @@ foreach strInterface in=$arrInterfaces do={
             if ($numCurFailCount > $numFailLimit) do={
                 set numCurFailCount $numFailLimit
             }
-            if ($strCurStatus = "DOWN") do={
+            if ($strPrevStatus = "DOWN") do={
                 set numCurSucCount 0
             }
         } else={

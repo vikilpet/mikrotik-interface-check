@@ -1,6 +1,8 @@
 # The MikroTik script to detect whether the interface is really working
 ![mikrotik interface check](https://user-images.githubusercontent.com/43970835/92155775-f2f5dd80-ee38-11ea-9af6-bb4f114d0029.gif)
 
+[На русском](readme_ru.md)
+
 Advantages:
 - Can be used for one or more interfaces.
 - Any type of interface.
@@ -10,6 +12,10 @@ Advantages:
 
 # Setup
 Just create script in `/system scripts` and set variables in `SETTINGS` to your liking. Variables are provided with comments and examples.
+
+Add a task to the scheduler with short interval. The script won't run twice anyway.
+
+    `/system script run Check_ISP1`
 
 You can use this firewall rule to test the script:
 
