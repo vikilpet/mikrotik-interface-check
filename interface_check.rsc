@@ -117,7 +117,7 @@ foreach strInterface in=$arrInterfaces do={
             local pr [ping address=$strHost count=$numPingCount \
                 interface=$strInterface]
             if ($pr = 0) do={
-                if ($strCurStatus = "UP") do={
+                if ($strPrevStatus = "UP") do={
                     log info ("    $strInterface: $strHost is unreachable")
                 }
             }

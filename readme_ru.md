@@ -15,7 +15,7 @@ GitHub: https://github.com/vikilpet/mikrotik-interface-check
 
 Добавьте задачу в планировщик с коротким интервалом, можно хоть несколько секунд.
 
-    `/system script run Check_ISP1`
+    /system script run Check_ISP1
 
 Для тестирования скрипта можно использовать такое правило:
 
