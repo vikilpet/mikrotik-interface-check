@@ -15,7 +15,7 @@ Just create script in `/system scripts` and set variables in `SETTINGS` to your 
 
 Add a task to the scheduler with short interval (even a couple of seconds is OK).
 
-    `/system script run Check_ISP1`
+    /system script run Check_ISP1
 
 You can use this firewall rule to test the script:
 
