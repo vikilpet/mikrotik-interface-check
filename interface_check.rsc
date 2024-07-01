@@ -52,7 +52,7 @@ local arrInterfaces [toarray ""]
 local numHostCount 0
 local numPingSuccess 0
 if ([len [/system script job find script=$strScriptName] ] > 1) do={
-    error ("$strScriptName duplicate")
+    quit
 }
 local funReplace do={
     # Test (define as 'global' in terminal):

@@ -6,9 +6,10 @@
 Advantages:
 - Can be used for one or more interfaces.
 - Any type of interface.
-- Ping several addresses (relying on one is too unreliable).
-- You can run it as often as you like - it can detect fail relatively fast.
-- Easy setup - you only need to set a couple of variables.
+- Ping multiple hosts, since relying on a single host is too unreliable.
+- You can run it as often as you like — it can detect fail relatively fast.
+- Easy setup — you only need to set a couple of variables.
+- Works on RouterOS 6 and 7.
 
 # Setup
 Just create script in `/system scripts` and set variables in `SETTINGS` to your liking. Variables are provided with comments and examples.
